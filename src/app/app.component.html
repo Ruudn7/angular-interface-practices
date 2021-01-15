@@ -8,12 +8,14 @@
     <div class="col">
 
       <input (keyup)="message = $event.target.value">
-      <button (click)="open = !open">Toggle</button>
+
+      <button (click)="focusedCard.show()">Show</button>
+      <button (click)="focusedCard.close()">Hidden</button>
 
       <app-static-card
+        #focusedCard 
         [text]="message"
-        [(open)]="open"
-        (closeEvent)="open = $event"
+        [open]="open"
         type="message"
       ></app-static-card>
     </div>
