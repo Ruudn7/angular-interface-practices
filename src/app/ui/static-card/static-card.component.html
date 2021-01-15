@@ -1,0 +1,8 @@
+<div class="card" [ngClass]="{
+    'bg-info text-whte': type =='message',
+    'bg-danger text-white': type =='error'
+}">
+    <div class="card-body">
+      {{text ? text : 'nie ma textu'}}
+    </div>
+</div>

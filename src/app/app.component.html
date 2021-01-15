@@ -6,11 +6,11 @@
   </div>
   <div class="row">
     <div class="col">
-        <div class="card">
-          <div class="card-body">
-            This is some text within a card body.
-          </div>
-        </div>
+
+      <app-static-card [text]="'message'" type="message"></app-static-card>
+      <app-static-card text="Jakiś text"></app-static-card>
+      <app-static-card text="Wystąpił błąd" type="error"></app-static-card>
+
     </div>
   </div>
 </div>
