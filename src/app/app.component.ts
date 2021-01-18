@@ -7,11 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-interface-practices';
-  message = '';
-  open = false;
 
-  focus(elem: StaticCardComponent): void {
-    elem.show();
-  }
 }
