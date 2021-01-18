@@ -9,13 +9,13 @@
 
       <input (keyup)="message = $event.target.value">
 
-      <button (click)="refElement.show()">Show</button>
-      <button (click)="refElement.close()">Hidden</button>
+      <button (click)="refElement.show()" class="btn mx-3">Show</button>
+      <button (click)="refElement.close()" class="btn">Hidden</button>
 
       <app-popup-message
         #refElement 
         [(open)]="open"
-        [text]="'popup'"
+        [text]="message"
       ></app-popup-message>
     </div>
   </div> 

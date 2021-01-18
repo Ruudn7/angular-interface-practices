@@ -5,7 +5,7 @@
     *ngIf="open"
 >
     <div class="card-body">
-        <span class="close" (click)="close()">&times;</span>
+        <app-card-close></app-card-close>
       {{text ? text : 'nie ma textu'}}
     </div>
 </div>

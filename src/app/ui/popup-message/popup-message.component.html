@@ -1,3 +1,4 @@
 <div class="alert alert-primary mt-4" *ngIf="open">
-    {{text}}
+    <app-card-close></app-card-close>
+    {{text ? text : 'sample text'}}
 </div>
