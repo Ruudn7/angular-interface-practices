@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { StaticCardComponent } from './ui/static-card/static-card.component';
+import { PopupMessageComponent } from './ui/popup-message/popup-message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StaticCardComponent
+    StaticCardComponent,
+    PopupMessageComponent
   ],
   imports: [
     BrowserModule

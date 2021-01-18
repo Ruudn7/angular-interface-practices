@@ -9,15 +9,14 @@
 
       <input (keyup)="message = $event.target.value">
 
-      <button (click)="focusedCard.show()">Show</button>
-      <button (click)="focusedCard.close()">Hidden</button>
+      <button (click)="refElement.show()">Show</button>
+      <button (click)="refElement.close()">Hidden</button>
 
-      <app-static-card
-        #focusedCard 
-        [text]="message"
-        [open]="open"
-        type="message"
-      ></app-static-card>
+      <app-popup-message
+        #refElement 
+        [(open)]="open"
+        [text]="'popup'"
+      ></app-popup-message>
     </div>
   </div> 
 </div>

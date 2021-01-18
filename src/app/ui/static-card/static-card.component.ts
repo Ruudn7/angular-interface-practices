@@ -9,10 +9,9 @@ export class StaticCardComponent {
 
   @Input() open = false;
   @Input() text = '';
+  @Input() type = '';
 
-  constructor(
-    @Attribute('type') public type: string
-  ) { }
+  constructor() { }
 
   close(): void {
     this.open = false;
