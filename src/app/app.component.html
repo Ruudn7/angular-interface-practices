@@ -6,11 +6,17 @@
   </div>
   <div class="row">
     <div class="col">
-        <div class="card">
-          <div class="card-body">
-            This is some text within a card body.
-          </div>
-        </div>
+
+      <input (keyup)="message = $event.target.value">
+
+      <button (click)="refElement.show()" class="btn mx-3">Show</button>
+      <button (click)="refElement.close()" class="btn">Hidden</button>
+
+      <app-popup-message
+        #refElement 
+        [(open)]="open"
+        [text]="message"
+      ></app-popup-message>
     </div>
-  </div>
+  </div> 
 </div>

@@ -1,0 +1,11 @@
+<div class="card" [ngClass]="{
+    'bg-info text-whte': type =='message',
+    'bg-danger text-white': type =='error'
+    }"
+    *ngIf="open"
+>
+    <div class="card-body">
+        <app-card-close></app-card-close>
+      {{text ? text : 'nie ma textu'}}
+    </div>
+</div>
