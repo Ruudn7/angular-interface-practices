@@ -12,6 +12,10 @@ export class InputPageComponent {
     message = '';
     open = false;
 
+    list = [
+      'pierwszy'
+    ];
+
     focus(elem: StaticCardComponent): void {
       elem.show();
     }

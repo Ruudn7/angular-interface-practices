@@ -16,5 +16,38 @@
       [(open)]="open"
       [text]="message"
     ></app-popup-message>
+
+    <app-panel [open]="true">
+      <h4 ngProjectAs="panel-header">
+        <app-panel-close></app-panel-close>
+        Lista testowa <small>5 testów</small>
+      </h4>
+      <ul>
+        <li *ngFor="let item of list">
+          Item: {{item}}
+        </li>
+      </ul>
+      <div ngProjectAs="panel-footer">
+        <input
+          type="text"
+          class="form-control" 
+          (keyup.enter)="
+            list.push(itemNameRef.value);
+            itemNameRef.value = '';
+          "
+          #itemNameRef
+        >
+      </div>
+    </app-panel>
+
+    <app-panel>
+      <h4 ngProjectAs="panel-header">
+        <app-panel-close></app-panel-close>
+        Drugi panel
+      </h4>
+      <p class="alert bg-warning">
+        Powiadomienie w panelu
+      </p>
+    </app-panel>
   </div>
 </div> 

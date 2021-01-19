@@ -10,6 +10,7 @@ import { StaticCardComponent } from './ui/static-card/static-card.component';
 import { PopupMessageComponent } from './ui/popup-message/popup-message.component';
 import { CardCloseComponent } from './ui/card-close/card-close.component';
 import { NavigationComponent } from './ui/navigation/navigation.component';
+import { PanelCloseComponent } from './pages/panel/panel-close/panel-close.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { NavigationComponent } from './ui/navigation/navigation.component';
     PanelComponent,
     NavigationComponent,
     InputPageComponent,
+    PanelCloseComponent,
   ],
   imports: [
     BrowserModule,
