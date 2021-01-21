@@ -18,16 +18,17 @@
     ></app-popup-message>
 
     <app-panel [open]="true">
-      <h4 ngProjectAs="panel-header">
+      <h4 class="card-header">
         <app-panel-close></app-panel-close>
         Lista testowa <small>5 testów</small>
       </h4>
-      <ul>
-        <li *ngFor="let item of list">
-          Item: {{item}}
-        </li>
-      </ul>
-      <div ngProjectAs="panel-footer">
+
+      <app-panel-tab *ngFor="let item of list" title="{{item}}">
+        <app-panel-close></app-panel-close>
+        {{item}}
+      </app-panel-tab>
+
+      <div class="card-footer">
         <input
           type="text"
           class="form-control" 

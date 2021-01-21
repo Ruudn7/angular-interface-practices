@@ -1,30 +1,15 @@
-import { PanelCloseComponent } from './panel-close/panel-close.component';
-import { AfterContentInit, Component, ContentChild, Input, OnInit } from '@angular/core';
+import { Component, ContentChildren, QueryList } from '@angular/core';
+
+import { PanelTabComponent } from './../panel-tab/panel-tab.component';
+import { PanelSharedComponent } from './../shared/panel-shared.component';
 
 @Component({
   selector: 'app-panel',
   templateUrl: `./panel.component.html`,
   styles: []
 })
-export class PanelComponent implements OnInit, AfterContentInit {
-  @Input() title = '';
-  @Input() open = true;
+export class PanelComponent extends PanelSharedComponent {
 
-  @ContentChild(PanelCloseComponent) closeBtn = new PanelCloseComponent();
-
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  ngAfterContentInit(): void {
-    console.log(this.closeBtn);
-    if (this.closeBtn) {
-      this.closeBtn.onClose.subscribe(() => {
-        this.open = false;
-      });
-    }
-  }
+  @ContentChildren(PanelTabComponent) panels = new QueryList<PanelTabComponent>();
 
 }

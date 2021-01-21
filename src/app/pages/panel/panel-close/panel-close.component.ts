@@ -5,12 +5,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   templateUrl: './panel-close.component.html',
   styleUrls: ['./panel-close.component.scss']
 })
-export class PanelCloseComponent implements OnInit {
+export class PanelCloseComponent {
   @Output() onClose = new EventEmitter();
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   close(): void {
     this.onClose.emit();

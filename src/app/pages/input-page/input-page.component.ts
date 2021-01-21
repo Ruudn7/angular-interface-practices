@@ -13,7 +13,9 @@ export class InputPageComponent {
     open = false;
 
     list = [
-      'pierwszy'
+      'pierwszy',
+      'drugi',
+      'trzec'
     ];
 
     focus(elem: StaticCardComponent): void {

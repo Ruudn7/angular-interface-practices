@@ -1,12 +1,21 @@
 <div class="card" *ngIf="open">
-    <div class="card-header">
-        <h5 *ngIf="title">{{title}}</h5>
-        <ng-content select="panel-header"></ng-content>
-    </div>
+    
+    <ng-content select=".card-header"></ng-content>
+    
+    <ul class="nav nav-pils">
+        <li class="nav-tem" *ngFor="let tab of panels">
+            <a
+                class="nav-link"
+                (click)="tab.open = !tab.open"
+            >
+                {{tab.title}}
+            </a>
+        </li>
+    </ul>
     <div class="card-body">
         <ng-content></ng-content>
     </div>
-    <div class="card-footer">
-        <ng-content select="panel-footer"></ng-content>
-    </div>
+    
+    <ng-content select=".card-footer"></ng-content>
+
 </div>

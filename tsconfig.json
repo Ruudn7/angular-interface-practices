@@ -26,6 +26,7 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
     "strictDomEventTypes": false,
-    "no-input-rename": false
+    "no-input-rename": false,
+    "strictPropertyInitialization": false
   }
 }
