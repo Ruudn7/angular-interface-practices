@@ -1,4 +1,4 @@
-import { TabsNavComponent } from './../../ui/panel/tabs-nav.component';
+import { TabsNavComponent } from '../../ui/panel/tabs-nav.component';
 import { AfterContentInit, ContentChild, Component, ContentChildren, QueryList } from '@angular/core';
 
 import { PanelTabComponent } from './../panel-tab/panel-tab.component';
