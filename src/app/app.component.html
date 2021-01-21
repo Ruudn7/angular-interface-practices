@@ -1,22 +1,4 @@
 <div class="container">
-  <div class="row mt-4 mb-4">
-    <div class="col">
-      <h1>Witaj w kursie Angular!</h1>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-
-      <input (keyup)="message = $event.target.value">
-
-      <button (click)="refElement.show()" class="btn mx-3">Show</button>
-      <button (click)="refElement.close()" class="btn">Hidden</button>
-
-      <app-popup-message
-        #refElement 
-        [(open)]="open"
-        [text]="message"
-      ></app-popup-message>
-    </div>
-  </div> 
+  <app-navigation></app-navigation>
+  <router-outlet></router-outlet>
 </div>

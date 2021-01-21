@@ -1,7 +1,8 @@
-import { CardCloseComponent } from './../card-close/card-close.component';
-import { Component, Input, ViewChild, AfterViewChecked, OnDestroy, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, QueryList, ViewChildren } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { flatMap, mergeMap, switchMap, tap } from 'rxjs/operators';
+import { mergeMap, switchMap } from 'rxjs/operators';
+
+import { CardCloseComponent } from './../card-close/card-close.component';
 
 @Component({
   selector: 'app-static-card',
@@ -20,7 +21,7 @@ export class StaticCardComponent implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.subscription = this.closeRefs.changes.pipe(
-      mergeMap( (changes: QueryList<CardCloseComponent>) => changes.toArray()s),
+      mergeMap( (changes: QueryList<CardCloseComponent>) => changes.toArray()),
       switchMap( button => button.onClose )
     ).subscribe(
       () => {

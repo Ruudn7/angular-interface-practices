@@ -1,0 +1,57 @@
+<div class="row mt-4 mb-4">
+  <div class="col">
+    <h1>Witaj w kursie Angular!</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+
+    <input (keyup)="message = $event.target.value">
+
+    <button (click)="refElement.show()" class="btn mx-3">Show</button>
+    <button (click)="refElement.close()" class="btn">Hidden</button>
+
+    <app-popup-message
+      #refElement 
+      [(open)]="open"
+      [text]="message"
+    ></app-popup-message>
+
+    <app-panel [open]="true">
+      <h4 class="card-header">
+        <app-panel-close></app-panel-close>
+        Lista testowa <small>5 testów</small>
+      </h4>
+
+      <app-tabs-nav></app-tabs-nav>
+      <br>
+      
+      <app-panel-tab *ngFor="let item of list" title="{{item}}">
+        <app-panel-close></app-panel-close>
+        {{item}}
+      </app-panel-tab>
+
+      <div class="card-footer">
+        <input
+          type="text"
+          class="form-control" 
+          (keyup.enter)="
+            list.push(itemNameRef.value);
+            itemNameRef.value = '';
+          "
+          #itemNameRef
+        >
+      </div>
+    </app-panel>
+
+    <app-panel [open]="true">
+      <h4 class="card-header">
+        <app-panel-close></app-panel-close>
+        Drugi panel
+      </h4>
+      <p class="alert bg-warning">
+        Powiadomienie w panelu
+      </p>
+    </app-panel>
+  </div>
+</div> 

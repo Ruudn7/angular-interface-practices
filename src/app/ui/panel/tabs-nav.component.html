@@ -1,0 +1,11 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item" *ngFor="let tab of panels">
+        <a
+            class="nav-link"
+            (click)="openTab(tab)"
+            [class.active]="tab.open"
+        >
+            {{tab.title}}
+        </a>
+    </li>
+</ul>
