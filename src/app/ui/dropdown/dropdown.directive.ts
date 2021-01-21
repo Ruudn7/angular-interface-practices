@@ -1,27 +1,34 @@
-import { Directive, ElementRef, OnInit } from '@angular/core';
+import { DropdownMenuDirective } from './dropdown-menu.directive';
+import { DropdownToggleDirective } from './dropdown-toggle.directive';
+import { Directive, ElementRef, OnInit, Renderer2, AfterContentInit, ContentChild } from '@angular/core';
 
 @Directive({
   selector: '[appDropdown]'
 })
-export class DropdownDirective implements OnInit {
+export class DropdownDirective implements AfterContentInit {
 
   constructor(
-    private elem: ElementRef
+    private elem: ElementRef,
+    private renderer: Renderer2
   ) {
     console.log('Hello dropdown', this.elem);
   }
 
-  ngOnInit(): void {
-    const el = this.elem.nativeElement;
+  @ContentChild(DropdownToggleDirective, {read: ElementRef}) toggle: ElementRef | undefined;
+  @ContentChild(DropdownMenuDirective, {read: ElementRef}) menu: ElementRef | undefined;
 
-    const toggle = el.querySelector('.dropdown-toggle');
-    const menu = el.querySelector('.dropdown-menu');
+  ngAfterContentInit(): void {
+    console.log(this.toggle, this.menu);
 
-    console.log(toggle, menu);
+    const toggle = this.toggle?.nativeElement;
+    const menu = this.menu?.nativeElement;
 
     menu.hidden = true;
-    toggle.addEventListener('click', () => {
-      menu.hidden = !menu.hidden;
+
+    this.renderer.setProperty(menu, 'hidden', true);
+    this.renderer.listen(toggle, 'click', () => {
+      this.renderer.setProperty(menu, 'hidden', !menu.hidden);
     });
   }
+
 }

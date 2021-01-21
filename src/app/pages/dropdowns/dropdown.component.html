@@ -15,10 +15,10 @@
       <div class="col">
   
         <div class="dropdown show" appDropdown>
-          <button class="btn btn-secondary dropdown-toggle" type="button">
+          <button class="btn btn-secondary dropdown-toggle" type="button" appDropdownToggle>
             Dropdown button
           </button>
-          <div class="dropdown-menu show">
+          <div class="dropdown-menu show" appDropdownMenu>
             <a class="dropdown-item" href="#" *ngFor="let item of menu.items">{{item.label}}</a>
           </div>
         </div>
@@ -26,7 +26,7 @@
       <div class="col" >
   
         <!-- Example split danger button -->
-        <div class="btn-group">
+        <div class="btn-group" appDropdown>
           <button type="button" class="btn btn-danger">Action</button>
           <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split">
           </button>

@@ -10,11 +10,13 @@ import { PanelCloseComponent } from './pages/panel/panel-close/panel-close.compo
 import { PanelComponent } from './pages/panel/panel.component';
 import { AppModuleRouting } from './routing.module';
 import { CardCloseComponent } from './ui/card-close/card-close.component';
+import { DropdownMenuDirective } from './ui/dropdown/dropdown-menu.directive';
+import { DropdownToggleDirective } from './ui/dropdown/dropdown-toggle.directive';
+import { DropdownDirective } from './ui/dropdown/dropdown.directive';
 import { NavigationComponent } from './ui/navigation/navigation.component';
 import { TabsNavComponent } from './ui/panel/tabs-nav.component';
 import { PopupMessageComponent } from './ui/popup-message/popup-message.component';
 import { StaticCardComponent } from './ui/static-card/static-card.component';
-import { DropdownDirective } from './ui/dropdown/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { DropdownDirective } from './ui/dropdown/dropdown.directive';
     PanelTabComponent,
     TabsNavComponent,
     DropdownComponent,
-    DropdownDirective
+    DropdownDirective,
+    DropdownMenuDirective,
+    DropdownToggleDirective
   ],
   imports: [
     BrowserModule,
