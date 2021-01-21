@@ -23,6 +23,9 @@
         Lista testowa <small>5 testów</small>
       </h4>
 
+      <app-tabs-nav></app-tabs-nav>
+      <br>
+      
       <app-panel-tab *ngFor="let item of list" title="{{item}}">
         <app-panel-close></app-panel-close>
         {{item}}
@@ -41,8 +44,8 @@
       </div>
     </app-panel>
 
-    <app-panel>
-      <h4 ngProjectAs="panel-header">
+    <app-panel [open]="true">
+      <h4 class="card-header">
         <app-panel-close></app-panel-close>
         Drugi panel
       </h4>

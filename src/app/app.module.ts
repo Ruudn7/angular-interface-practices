@@ -10,6 +10,7 @@ import { PanelComponent } from './pages/panel/panel.component';
 import { AppModuleRouting } from './routing.module';
 import { CardCloseComponent } from './ui/card-close/card-close.component';
 import { NavigationComponent } from './ui/navigation/navigation.component';
+import { TabsNavComponent } from './ui/panel/tabs-nav.component';
 import { PopupMessageComponent } from './ui/popup-message/popup-message.component';
 import { StaticCardComponent } from './ui/static-card/static-card.component';
 
@@ -23,7 +24,8 @@ import { StaticCardComponent } from './ui/static-card/static-card.component';
     NavigationComponent,
     InputPageComponent,
     PanelCloseComponent,
-    PanelTabComponent
+    PanelTabComponent,
+    TabsNavComponent
   ],
   imports: [
     BrowserModule,

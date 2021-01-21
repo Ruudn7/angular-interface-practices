@@ -8,7 +8,7 @@ import { PanelCloseComponent } from './../panel/panel-close/panel-close.componen
 })
 
 export class PanelSharedComponent implements AfterContentInit {
-    @Input() open = true;
+    @Input() open = false;
     @Input() title = '';
 
     @ContentChild(PanelCloseComponent) closeBtn = new PanelCloseComponent();

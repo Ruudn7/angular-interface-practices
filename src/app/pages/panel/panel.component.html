@@ -1,17 +1,7 @@
-<div class="card" *ngIf="open">
+<div class="card mt-5" *ngIf="open">
     
     <ng-content select=".card-header"></ng-content>
     
-    <ul class="nav nav-pils">
-        <li class="nav-tem" *ngFor="let tab of panels">
-            <a
-                class="nav-link"
-                (click)="tab.open = !tab.open"
-            >
-                {{tab.title}}
-            </a>
-        </li>
-    </ul>
     <div class="card-body">
         <ng-content></ng-content>
     </div>
