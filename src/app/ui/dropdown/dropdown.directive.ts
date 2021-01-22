@@ -4,7 +4,8 @@ import { DropdownMenuDirective } from './dropdown-menu.directive';
 import { DropdownToggleDirective } from './dropdown-toggle.directive';
 
 @Directive({
-  selector: '[appDropdown]'
+  selector: '[appDropdown]',
+  exportAs: 'dropdown'
 })
 export class DropdownDirective implements AfterContentInit {
 

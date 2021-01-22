@@ -11,10 +11,20 @@
         <hr>
       </div>
     </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <button
+                class="btn btn-default"
+                (click)="open(first); $event.stopPropagation()"
+            >Open</button>
+        </div>
+    </div>
+
     <div class="row">
       <div class="col">
   
-        <div class="dropdown show" appDropdown>
+        <div class="dropdown show" appDropdown #first="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" appDropdownToggle>
             Dropdown button
           </button>

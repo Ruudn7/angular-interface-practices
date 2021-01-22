@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DropdownDirective } from 'src/app/ui/dropdown/dropdown.directive';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,10 @@ export class DropdownComponent {
       { label: 'Jeszcze jedna...' },
     ]
   };
+
+  open(ref: DropdownDirective): void {
+      ref.toggleMenu();
+  }
 
   addMenuItem(label: string): void{
     this.menu.items.push({
