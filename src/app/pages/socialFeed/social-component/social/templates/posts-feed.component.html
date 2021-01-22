@@ -1,0 +1,27 @@
+<h4>Social Feed</h4>
+<div class='col-8 mx-auto'>
+    <app-posts-filter (queryChange)='filter($event)'></app-posts-filter>
+
+    <!-- <ng-template [ngIf]="getResults().length" [ngIfThen]="results" [ngIfElse]="noResults" ></ng-template> -->
+
+    <ng-container *ngIf="getResults().length; then results; else noResults"></ng-container>
+
+    <ng-template #noResults>
+        <app-no-results></app-no-results>
+    </ng-template>
+    
+    <ng-template #results>
+        <div class='card-deck flex-column'>
+            <div class='card mb-4' *ngFor='let post of getResults()'>
+                <div class='card-body'>
+                    <app-post-header [post]='post'></app-post-header>
+                    <p class='card-text'>{{post.content}}</p>
+                </div>
+                <div class='card-footer'>
+                    <app-post-actions [post]='post'></app-post-actions>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+</div>
