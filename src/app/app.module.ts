@@ -1,8 +1,3 @@
-import { PostsFilterComponent } from './pages/socialFeed/social-component/social/posts-filter.component';
-import { PostsFeedComponent } from './pages/socialFeed/social-component/social/posts-feed.component';
-import { PostHeaderComponent } from './pages/socialFeed/social-component/social/post-header.component';
-import { PostActionsComponent } from './pages/socialFeed/social-component/social/post-actions.component';
-import { NoResultsComponent } from './pages/socialFeed/social-component/social/no-results.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -13,7 +8,14 @@ import { InputPageComponent } from './pages/input-page/input-page.component';
 import { PanelTabComponent } from './pages/panel-tab/panel-tab.component';
 import { PanelCloseComponent } from './pages/panel/panel-close/panel-close.component';
 import { PanelComponent } from './pages/panel/panel.component';
+import { PostOutletDirective } from './pages/socialFeed/directives/post-outlet.directive';
+import { PostTplDirective } from './pages/socialFeed/directives/post-tpl.directive';
 import { SocialComponentComponent } from './pages/socialFeed/social-component/social-component.component';
+import { NoResultsComponent } from './pages/socialFeed/social-component/social/no-results.component';
+import { PostActionsComponent } from './pages/socialFeed/social-component/social/post-actions.component';
+import { PostHeaderComponent } from './pages/socialFeed/social-component/social/post-header.component';
+import { PostsFeedComponent } from './pages/socialFeed/social-component/social/posts-feed.component';
+import { PostsFilterComponent } from './pages/socialFeed/social-component/social/posts-filter.component';
 import { AppModuleRouting } from './routing.module';
 import { CardCloseComponent } from './ui/card-close/card-close.component';
 import { DropdownMenuDirective } from './ui/dropdown/dropdown-menu.directive';
@@ -45,7 +47,9 @@ import { StaticCardComponent } from './ui/static-card/static-card.component';
     PostActionsComponent,
     PostHeaderComponent,
     PostsFeedComponent,
-    PostsFilterComponent
+    PostsFilterComponent,
+    PostTplDirective,
+    PostOutletDirective
   ],
   imports: [
     BrowserModule,

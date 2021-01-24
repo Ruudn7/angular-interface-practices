@@ -3,9 +3,9 @@
     <app-posts-filter (queryChange)='filter($event)'></app-posts-filter>
 
     <!-- <ng-template [ngIf]="getResults().length" [ngIfThen]="results" [ngIfElse]="noResults" ></ng-template> -->
-    <ng-container *ngIf="getResults().length; then resultsTpl; else noResultsTpl">
-
-    </ng-container>
+    <ng-container
+        *ngIf="getResults().length; then resultsTpl; else noResultsTpl"
+    ></ng-container>
 
 </div>
 
@@ -13,21 +13,23 @@
 
 
 
-<ng-template #noResultsTpl>
-    <app-no-results></app-no-results>
+<ng-template #resultsTpl>
+    <div class='card-deck flex-column'>
+        <!-- <ng-template ngFor let-post="$implicit" [ngForOf]="getResults()"> -->
+            <div class='card mb-4' *ngFor='let result of getResults()'>
+                <!-- <ng-container
+                    *ngTemplateOutlet="result.media ? mediaPost : regularPost; Context: getPostContext(result)"
+                ></ng-container> -->
+                <ng-container
+                    *appPostOutlet="result; types templates"
+                ></ng-container>
+            </div>
+        <!-- </ng-template> -->
+    </div>
 </ng-template>
 
-<ng-template #regularPost let-post>
-    <div class='card-body'>
-        <app-post-header [post]='post'></app-post-header>
-        <p class='card-text'>{{post.content}}</p>
-    </div>
-    <div class='card-footer'>
-        <app-post-actions [post]='post'></app-post-actions>
-    </div>
-</ng-template>
-
-<ng-template #mediaPost let-post>
+<!-- same as regular -->
+<div *appPostTpl="let post; type 'media'"> 
     <div class='card-body'>
         <app-post-header [post]='post'></app-post-header>
         <p class='card-text'>{{post.content}}</p>
@@ -36,24 +38,18 @@
     <div class='card-footer'>
         <app-post-actions [post]='post'></app-post-actions>
     </div>
+</div>
+
+<ng-template appPostTpl appPostTplType="regular" let-post>
+    <div class='card-body'>
+        <app-post-header [post]='post'></app-post-header>
+        <p class='card-text'>{{post.content}}</p>
+    </div>
+    <div class='card-footer'>
+        <app-post-actions [post]='post'></app-post-actions>
+    </div>
 </ng-template>
 
-<ng-template #resultsTpl>
-    <div class='card-deck flex-column'>
-        <!-- <ng-template ngFor let-post="$implicit" [ngForOf]="getResults()"> -->
-            <div class='card mb-4' *ngFor='let result of getResults()'>
-                <!-- <ng-container
-                    [ngTemplateOutlet]="result.media ? mediaPost : regularPost"
-                    [ngTemplateOutletContext]="{
-                        $implicit: result
-                    }"
-                ></ng-container> Same as below -->
-                <ng-container
-                    *ngTemplateOutlet="result.media ? mediaPost : regularPost; Context: {
-                        $implicit: result
-                    }"
-                ></ng-container>
-            </div>
-        <!-- </ng-template> -->
-    </div>
+<ng-template #noResultsTpl>
+    <app-no-results></app-no-results>
 </ng-template>

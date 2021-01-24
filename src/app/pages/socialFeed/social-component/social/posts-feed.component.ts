@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { PostTplDirective } from './../../directives/post-tpl.directive';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, TemplateRef, ViewChildren, QueryList } from '@angular/core';
 import { Post } from './types';
 
 @Component({
@@ -6,12 +7,22 @@ import { Post } from './types';
   templateUrl: './templates/posts-feed.component.html',
   styles: []
 })
-export class PostsFeedComponent implements OnInit {
+export class PostsFeedComponent implements OnInit, AfterViewInit {
 
+    @ViewChild('mediaPost')
+    mediaPostTpl!: TemplateRef<any>;
+
+    @ViewChild('regularPost')
+    regularPostTpl!: TemplateRef<any>;
+
+    @ViewChildren(PostTplDirective, {read: PostTplDirective}) postTpls = new QueryList<PostTplDirective>();
+
+    templates: PostTplDirective[] = [];
   posts: Post[] = [
     {
       id: 1,
       content: 'Some example text update. ',
+      type: 'regular',
       author: {
         name: 'Matt Exampler',
         avatar: 'assets/avatars/mateusz.jpg'
@@ -20,6 +31,7 @@ export class PostsFeedComponent implements OnInit {
     {
       id: 2,
       content: 'Some example text update.',
+      type: 'media',
       media: {
         image: 'assets/images/logoedu.png'
       },
@@ -31,6 +43,7 @@ export class PostsFeedComponent implements OnInit {
     {
       id: 3,
       content: 'Some example text update.',
+      type: 'regular',
       author: {
         name: 'Peter Sampler',
         avatar: 'assets/avatars/piotr.png'
@@ -54,6 +67,12 @@ export class PostsFeedComponent implements OnInit {
 
   ngOnInit(): void {
     this.filter('');
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.templates = this.postTpls.toArray();
+    }, 0);
   }
 
 }
