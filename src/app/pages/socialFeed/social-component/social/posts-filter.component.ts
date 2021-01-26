@@ -9,7 +9,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   `,
   styles: []
 })
-export class PostsFilterComponent implements OnInit {
+export class PostsFilterComponent {
 
   constructor() { }
 
@@ -21,9 +21,6 @@ export class PostsFilterComponent implements OnInit {
 
   filter(query: any): any{
     this.queryChange.emit(query);
-  }
-
-  ngOnInit(): void {
   }
 
 }

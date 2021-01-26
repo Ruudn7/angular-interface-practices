@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-post-actions',
@@ -9,14 +9,9 @@ import { Component, OnInit, Input } from '@angular/core';
   `,
   styles: []
 })
-export class PostActionsComponent implements OnInit {
+export class PostActionsComponent {
 
   @Input()
   post: any;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

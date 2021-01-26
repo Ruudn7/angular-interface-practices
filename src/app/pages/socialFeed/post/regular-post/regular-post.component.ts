@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
 import { Post } from '../../social-component/social/types';
 
 @Component({
@@ -6,13 +7,8 @@ import { Post } from '../../social-component/social/types';
   templateUrl: './regular-post.component.html',
   styleUrls: ['./regular-post.component.scss']
 })
-export class RegularPostComponent implements OnInit {
+export class RegularPostComponent {
 
   @Input() post: Post | undefined;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

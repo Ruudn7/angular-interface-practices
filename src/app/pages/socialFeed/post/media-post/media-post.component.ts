@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
 import { Post } from '../../social-component/social/types';
 
 @Component({
@@ -6,12 +7,9 @@ import { Post } from '../../social-component/social/types';
   templateUrl: './media-post.component.html',
   styleUrls: ['./media-post.component.scss']
 })
-export class MediaPostComponent implements OnInit {
+export class MediaPostComponent {
 
   @Input() post: Post | undefined;
-  constructor() { }
 
-  ngOnInit(): void {
-  }
 
 }
