@@ -20,16 +20,21 @@
                 <!-- <ng-container
                     *ngTemplateOutlet="result.media ? mediaPost : regularPost; Context: getPostContext(result)"
                 ></ng-container> -->
-                <ng-container
+                <!-- <ng-container
                     *appPostOutlet="result; types templates"
-                ></ng-container>
+                ></ng-container> -->
+                <app-dynamic-post [post]='result'></app-dynamic-post>
+                <!-- <ng-container [ngSwitch]="result.type">
+                    <app-media-post *ngSwitchCase="'media'" [post]='result'></app-media-post>
+                    <app-regular-post *ngSwitchDefault [post]='result'></app-regular-post>
+                </ng-container> -->
             </div>
         <!-- </ng-template> -->
     </div>
 </ng-template>
 
 <!-- same as regular -->
-<div *appPostTpl="let post; type 'media'"> 
+<ng-template let-post #mediaPost> 
     <div class='card-body'>
         <app-post-header [post]='post'></app-post-header>
         <p class='card-text'>{{post.content}}</p>
@@ -38,9 +43,9 @@
     <div class='card-footer'>
         <app-post-actions [post]='post'></app-post-actions>
     </div>
-</div>
+</ng-template>
 
-<ng-template appPostTpl appPostTplType="regular" let-post>
+<ng-template let-post #regularPost >
     <div class='card-body'>
         <app-post-header [post]='post'></app-post-header>
         <p class='card-text'>{{post.content}}</p>

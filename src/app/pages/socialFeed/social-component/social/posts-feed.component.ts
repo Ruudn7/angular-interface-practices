@@ -18,38 +18,92 @@ export class PostsFeedComponent implements OnInit, AfterViewInit {
     @ViewChildren(PostTplDirective, {read: PostTplDirective}) postTpls = new QueryList<PostTplDirective>();
 
     templates: PostTplDirective[] = [];
-  posts: Post[] = [
-    {
-      id: 1,
-      content: 'Some example text update. ',
-      type: 'regular',
-      author: {
-        name: 'Matt Exampler',
-        avatar: 'assets/avatars/mateusz.jpg'
-      }
-    },
-    {
-      id: 2,
-      content: 'Some example text update.',
-      type: 'media',
-      media: {
-        image: 'assets/images/logoedu.png'
+    posts: Post[] = [
+      {
+        id: 1,
+        content: 'Some example text update.',
+        type: 'regular',
+        author: {
+          name: 'Matt Exampler',
+          avatar: 'assets/avatars/mateusz.jpg'
+        },
+        comments: [
+          {
+            id: 1,
+            content: 'Oh Wow!',
+            author: {
+              name: 'Greg Tester',
+              avatar: 'assets/avatars/grzegorz.jpg'
+            }
+          },
+          {
+            id: 2,
+            content: 'Such Angular',
+            author: {
+              name: 'Matt Exampler',
+              avatar: 'assets/avatars/mateusz.jpg'
+            },
+            comments: [
+              {
+                id: 3,
+                content: 'Oh, and it nests?!',
+                author: {
+                  name: 'Greg Tester',
+                  avatar: 'assets/avatars/grzegorz.jpg'
+                },
+                comments: [
+                  {
+                    id: 4,
+                    content: 'Oh, and it nests?!',
+                    author: {
+                      name: 'Greg Tester',
+                      avatar: 'assets/avatars/grzegorz.jpg'
+                    }
+                  },
+                  {
+                    id: 5,
+                    content: 'Sure, We can go deeper.',
+                    author: {
+                      name: 'Matt Exampler',
+                      avatar: 'assets/avatars/mateusz.jpg'
+                    }
+                  }
+                ]
+              },
+              {
+                id: 6,
+                content: 'Sure, We can go deeper.',
+                author: {
+                  name: 'Matt Exampler',
+                  avatar: 'assets/avatars/mateusz.jpg'
+                }
+              }
+            ]
+          }
+        ]
       },
-      author: {
-        name: 'Greg Tester',
-        avatar: 'assets/avatars/grzegorz.jpg'
+      {
+        id: 2,
+        content: 'Some example text update.',
+        type: 'media',
+        media: {
+          image: 'assets/images/logoedu.png'
+        },
+        author: {
+          name: 'Greg Tester',
+          avatar: 'assets/avatars/grzegorz.jpg'
+        }
+      },
+      {
+        id: 3,
+        content: 'Some example text update.',
+        type: 'regular',
+        author: {
+          name: 'Peter Sampler',
+          avatar: 'assets/avatars/piotr.png'
+        }
       }
-    },
-    {
-      id: 3,
-      content: 'Some example text update.',
-      type: 'regular',
-      author: {
-        name: 'Peter Sampler',
-        avatar: 'assets/avatars/piotr.png'
-      }
-    }
-  ];
+    ];
 
   results: Post[] = [];
 
@@ -58,6 +112,7 @@ export class PostsFeedComponent implements OnInit, AfterViewInit {
       return !query || (post.content.includes(query) || post.author.name.includes(query));
     });
   }
+
 
   getResults(): Post[] {
     return this.results;

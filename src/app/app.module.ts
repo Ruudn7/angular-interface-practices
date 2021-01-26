@@ -25,6 +25,11 @@ import { NavigationComponent } from './ui/navigation/navigation.component';
 import { TabsNavComponent } from './ui/panel/tabs-nav.component';
 import { PopupMessageComponent } from './ui/popup-message/popup-message.component';
 import { StaticCardComponent } from './ui/static-card/static-card.component';
+import { RegularPostDirective } from './pages/socialFeed/social-component/regular-post.directive';
+import { RegularPostComponent } from './pages/socialFeed/post/regular-post/regular-post.component';
+import { MediaPostComponent } from './pages/socialFeed/post/media-post/media-post.component';
+import { DynamicPostComponent } from './pages/socialFeed/post/dynamic-post/dynamic-post.component';
+import { CommentsComponent } from './pages/socialFeed/comments/comments.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +54,12 @@ import { StaticCardComponent } from './ui/static-card/static-card.component';
     PostsFeedComponent,
     PostsFilterComponent,
     PostTplDirective,
-    PostOutletDirective
+    PostOutletDirective,
+    RegularPostDirective,
+    RegularPostComponent,
+    MediaPostComponent,
+    DynamicPostComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,

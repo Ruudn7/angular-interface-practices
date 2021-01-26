@@ -1,0 +1,8 @@
+<div class='card-body'>
+    <app-post-header [post]='post'></app-post-header>
+    <p class='card-text'>{{post?.content}}</p>
+</div>
+<img [src]="post?.media?.image" alt="sample-img" class="w-100 mx-auto">
+<div class='card-footer'>
+    <app-post-actions [post]='post'></app-post-actions>
+</div>
